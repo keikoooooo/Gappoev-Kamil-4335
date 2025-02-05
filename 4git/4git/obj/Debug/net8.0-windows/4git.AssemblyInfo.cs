@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4git")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5d38ec2c817f045983f98f20c9a2a14cdf589f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08f05eeda118b9c95a4a1190975f688d9fee2d97")]
 [assembly: System.Reflection.AssemblyProductAttribute("4git")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4git")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
