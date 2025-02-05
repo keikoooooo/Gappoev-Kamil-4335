@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Mi\\Gappoev-Kamil-4335\\4git\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|c:\\users\\mi\\gappoev-kamil-4335\\4git\\4git\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|solutionrelative:4git\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|c:\\users\\mi\\gappoev-kamil-4335\\4git\\4git\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|solutionrelative:4git\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|c:\\users\\mi\\gappoev-kamil-4335\\4git\\4git\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|solutionrelative:4git\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|c:\\users\\mi\\gappoev-kamil-4335\\4git\\4git\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|solutionrelative:4git\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|c:\\users\\mi\\gappoev-kamil-4335\\4git\\4git\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{068955EF-5F57-400B-A6A6-172FBB251376}|4git\\4git.csproj|solutionrelative:4git\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 36,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,15 +30,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Window1.xaml",
               "DocumentMoniker": "C:\\Users\\Mi\\Gappoev-Kamil-4335\\4git\\4git\\Window1.xaml",
               "RelativeDocumentMoniker": "4git\\Window1.xaml",
               "ToolTip": "C:\\Users\\Mi\\Gappoev-Kamil-4335\\4git\\4git\\Window1.xaml",
               "RelativeToolTip": "4git\\Window1.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-05T05:59:56.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-05T05:59:56.039Z"
             },
             {
               "$type": "Document",
@@ -46,23 +45,24 @@
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Mi\\Gappoev-Kamil-4335\\4git\\4git\\MainWindow.xaml",
               "RelativeDocumentMoniker": "4git\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Mi\\Gappoev-Kamil-4335\\4git\\4git\\MainWindow.xaml",
-              "RelativeToolTip": "4git\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Mi\\Gappoev-Kamil-4335\\4git\\4git\\MainWindow.xaml*",
+              "RelativeToolTip": "4git\\MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-02-05T05:53:53.687Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Mi\\Gappoev-Kamil-4335\\4git\\4git\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "4git\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Mi\\Gappoev-Kamil-4335\\4git\\4git\\MainWindow.xaml.cs",
               "RelativeToolTip": "4git\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAjwCEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T05:53:51.493Z"
+              "WhenOpened": "2025-02-05T05:53:51.493Z",
+              "EditorCaption": ""
             }
           ]
         },

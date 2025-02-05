@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="click2click" FontSize ="24px" HorizontalAlignment="Center" Margin="0,295,0,0" VerticalAlignment="Top"/>
+        <Button Content="click2click" FontSize ="24px" HorizontalAlignment="Center" Margin="0,295,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <TextBox HorizontalAlignment="Center" Margin="0,39,0,0" TextWrapping="Wrap" Text="Gappoev Kamil" VerticalAlignment="Top" Width="280" TextChanged="TextBox_TextChanged" Height="141" FontSize="48"/>
 
     </Grid>

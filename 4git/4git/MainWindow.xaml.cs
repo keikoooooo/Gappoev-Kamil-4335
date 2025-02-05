@@ -25,5 +25,12 @@ namespace _4git
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 win = new Window1();
+            win.Show();
+            this.Close();
+        }
     }
 }
