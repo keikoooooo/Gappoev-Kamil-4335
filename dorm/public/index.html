@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студенческий городок КНИТУ-КАИ</title>
+    <link rel="stylesheet" href="../src/index.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.20.15/babel.min.js"></script>
+    <!-- <script type="text/babel">
+        const { useState } = React;
+
+        // Компонент хедера
+        function Header() {
+            return (
+                <header>
+                    <div className="header-container">
+                        <div className="nav-container">
+                            <img src="logo KAI.png" alt="Логотип КНИТУ-КАИ" className="logo" />
+                            <div className="navbutt">
+                                <a href="#">Главная</a>
+                            </div>
+                            <div className="navbutt">
+                                <a href="./dorms.html">Общежития</a>
+                            </div>
+                            <div className="navbutt">
+                                <a href="#">Приложение</a>
+                            </div>
+                            <div className="navbutt">
+                                <a href="#">Рынок</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="nav-head">
+                        <h1 className="stud">Студенческий городок КНИТУ-КАИ</h1>
+                    </div>
+                </header>
+            );
+        }
+
+        // Компонент Hero
+        function Hero() {
+            return (
+                <section className="hero">
+                    <div className="info">
+                        <h1>ДОБРО ПОЖАЛОВАТЬ В СТУДЕНЧЕСКИЙ ГОРОДОК КНИТУ-КАИ</h1>
+                        <div className="per"></div>
+                        <p>Система учёта жильцов общежитий КНИТУ-КАИ (SARC) – инновационное решение, которое связывает 8 общежитий и помогает управляющим и жильцам эффективно организовывать проживание.</p>
+                    </div>
+                    <img className="camp_logo" src="logo_camp 1.png" alt="Логотип городка" />
+                </section>
+            );
+        }
+
+        // Компонент статистики
+        function Stats() {
+            return (
+                <div className="stats">
+                    <div className="stat-item">8 общежитий</div>
+                    <div className="stat-item">Более 3000 студентов</div>
+                    <div className="stat-item">Бальная система</div>
+                </div>
+            );
+        }
+
+        // Компонент формы для добавления студента
+        function StudentForm({ addStudent }) {
+            const [name, setName] = useState('');
+            const [room, setRoom] = useState('');
+            const [dorm, setDorm] = useState('Общежитие №1');
+            const [status, setStatus] = useState('проживает');
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                if (name && room && dorm) {
+                    addStudent({ id: Date.now(), name, room, dorm, status });
+                    setName('');
+                    setRoom('');
+                    setDorm('Общежитие №1');
+                    setStatus('проживает');
+                }
+            };
+
+            return (
+                <section className="container max-w-1200px mx-auto px-20px mb-40px">
+                    <div className="bg-white p-25px rounded-10px shadow-[0_4px_8px_rgba(0,0,0,0.1)]">
+                        <h2 className="text-2xl font-semibold mb-20px border-b-2 border-[#1C81B7] pb-10px">Добавить студента</h2>
+                        <div className="flex flex-col gap-4">
+                            <input
+                                type="text"
+                                placeholder="Имя"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className="p-2 border rounded"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Номер комнаты"
+                                value={room}
+                                onChange={(e) => setRoom(e.target.value)}
+                                className="p-2 border rounded"
+                            />
+                            <select
+                                value={dorm}
+                                onChange={(e) => setDorm(e.target.value)}
+                                className="p-2 border rounded"
+                            >
+                                <option value="Общежитие №1">Общежитие №1</option>
+                                <option value="Общежитие №2">Общежитие №2</option>
+                                <option value="Общежитие №3">Общежитие №3</option>
+                                <option value="Общежитие №4">Общежитие №4</option>
+                                <option value="Общежитие №5">Общежитие №5</option>
+                                <option value="Общежитие №6">Общежитие №6</option>
+                                <option value="Общежитие №7">Общежитие №7</option>
+                            </select>
+                            <select
+                                value={status}
+                                onChange={(e) => setStatus(e.target.value)}
+                                className="p-2 border rounded"
+                            >
+                                <option value="проживает">Проживает</option>
+                                <option value="выселен">Выселен</option>
+                            </select>
+                            <button
+                                onClick={handleSubmit}
+                                className="p-2 bg-[#1C81B7] text-white rounded hover:opacity-80"
+                            >
+                                Добавить
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        // Компонент фильтра
+        function Filter({ setFilter }) {
+            return (
+                <section className="container max-w-1200px mx-auto px-20px mb-40px">
+                    <div className="bg-white p-25px rounded-10px shadow-[0_4px_8px_rgba(0,0,0,0.1)]">
+                        <h2 className="text-2xl font-semibold mb-20px border-b-2 border-[#1C81B7] pb-10px">Фильтр</h2>
+                        <select
+                            onChange={(e) => setFilter(e.target.value)}
+                            className="p-2 border rounded"
+                        >
+                            <option value="все">Все</option>
+                            <option value="проживает">Проживает</option>
+                            <option value="выселен">Выселен</option>
+                        </select>
+                    </div>
+                </section>
+            );
+        }
+
+        // Компонент списка студентов
+        function StudentList({ students, deleteStudent }) {
+            return (
+                <section className="container max-w-1200px mx-auto px-20px mb-40px">
+                    <div className="bg-white p-25px rounded-10px shadow-[0_4px_8px_rgba(0,0,0,0.1)]">
+                        <h2 className="text-2xl font-semibold mb-20px border-b-2 border-[# Lar1C81B7] pb-10px">Список студентов</h2>
+                        {students.length === 0 ? (
+                            <p className="text-gray-500">Нет студентов</p>
+                        ) : (
+                            <ul className="divide-y divide-gray-200">
+                                {students.map((student) => (
+                                    <li key={student.id} className="py-2 flex justify-between items-center">
+                                        <div>
+                                            <p className="font-medium">{student.name}</p>
+                                            <p className="text-sm text-gray-600">Комната: {student.room}</p>
+                                            <p className="text-sm text-gray-600">Общежитие: {student.dorm}</p>
+                                            <p className="text-sm text-gray-600">Статус: {student.status}</p>
+                                        </div>
+                                        <button
+                                            onClick={() => deleteStudent(student.id)}
+                                            className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
+                                        >
+                                            Удалить
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                </section>
+            );
+        }
+
+        // Компонент информации об университете
+        function UniversityInfo() {
+            return (
+                <section className="university-info">
+                    <h2>КНИТУ-КАИ</h2>
+                    <ul>
+                        <li>Университет</li>
+                        <li>Наука и инновация</li>
+                        <li>Сотруднику</li>
+                        <li>Индий ТУ-146</li>
+                    </ul>
+                </section>
+            );
+        }
+
+        // Компонент информации о городке
+        function CampusInfo() {
+            return (
+                <section className="campus-info">
+                    <h2>Студенческий городок</h2>
+                    <ul>
+                        <li>Директор</li>
+                        <li>Общежитие</li>
+                        <li>Документы</li>
+                        <li>Совет</li>
+                        <li>Служительский государственный</li>
+                        <li>Сообщества общежитий</li>
+                        <li>Общежитие №1</li>
+                        <li>Общежитие №2</li>
+                        <li>Общежитие №3</li>
+                        <li>Общежитие №4</li>
+                        <li>Общежитие №5</li>
+                        <li>Общежитие №6</li>
+                        <li>Общежитие №7</li>
+                    </ul>
+                </section>
+            );
+        }
+
+        // Компонент футера
+        function Footer() {
+            return (
+                <footer>
+                    © 2023 Рекомендации: Евгений Париж, Линия Барахлевна
+                </footer>
+            );
+        }
+
+        // Главный компонент
+        function App() {
+            const [students, setStudents] = useState([]);
+            const [filter, setFilter] = useState('все');
+
+            const addStudent = (student) => {
+                setStudents([...students, student]);
+            };
+
+            const deleteStudent = (id) => {
+                setStudents(students.filter((student) => student.id !== id));
+            };
+
+            const filteredStudents = students.filter((student) => {
+                if (filter === 'все') return true;
+                return student.status === filter;
+            });
+
+            return (
+                <div>
+                    <Header />
+                    <Hero />
+                    <Stats />
+                    <StudentForm addStudent={addStudent} />
+                    <Filter setFilter={setFilter} />
+                    <StudentList students={filteredStudents} deleteStudent={deleteStudent} />
+                    <div className="container">
+                        <UniversityInfo />
+                        <CampusInfo />
+                    </div>
+                    <Footer />
+                </div>
+            );
+        }
+
+        // Рендеринг
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script> -->
+</body>
+</html>

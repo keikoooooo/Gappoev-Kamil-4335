@@ -1,0 +1,141 @@
+.dormitory-slider {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.slider-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  max-width: 600px;
+}
+
+.slide {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dormitory-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.dormitory-info {
+  padding: 1.2rem;
+  text-align: left;
+}
+
+.dormitory-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1976d2;
+}
+
+.dormitory-info p {
+  margin: 0.3rem 0;
+  color: #555;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+  background: #1976d2;
+  color: white;
+}
+
+.left-arrow {
+  left: -20px;
+}
+
+.right-arrow {
+  right: -20px;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #1976d2;
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background: #1976d2;
+}
+
+.loading, .error, .empty {
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .slider-container {
+    max-width: 90%;
+  }
+  
+  .dormitory-image {
+    height: 250px;
+  }
+  
+  .slider-arrow {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .left-arrow {
+    left: -10px;
+  }
+  
+  .right-arrow {
+    right: -10px;
+  }
+}
