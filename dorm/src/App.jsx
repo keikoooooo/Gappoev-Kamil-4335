@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import DormsPage from "./pages/DormPage";
-import MainPage from "./pages/MainPage";
-import LoginForm from "./components/LoginForm";
-import AuthButton from "./components/AuthButton";
-import MarketplacePage from "./pages/MarketplacePage";
-import { refreshTokens } from './services/authService';
-import RegisterForm from './components/RegistrationForm';
+import DormsPage from './pages/DormPage';
+import MainPage from './pages/MainPage';
+import LoginForm from './components/LoginForm';
+import AuthButton from './components/AuthButton';
+import MarketplacePage from './pages/MarketplacePage';
+import AdminUserManagement from './pages/AdminUserManagment'; // Исправлено название файла
+//import NotFoundPage from './pages/NotFoundPage'; // Добавьте страницу 404
 
-import './index.css';
+import './App.css';
+
+// Импортируем логотип
+import logoKAI from './styles/logoKAI.png';
 
 // Компонент хедера
 function Header() {
@@ -18,7 +21,7 @@ function Header() {
     <header>
       <div className="header-container">
         <div className="nav-container">
-          <img src="../logoKAI.png" alt="Логотип КНИТУ-КАИ" className="logo" />
+          <img src={logoKAI} alt="Логотип КНИТУ-КАИ" className="logo" />
           <div className="navbutt">
             <Link to="/">Главная</Link>
           </div>
@@ -26,10 +29,13 @@ function Header() {
             <Link to="/dormitories">Общежития</Link>
           </div>
           <div className="navbutt">
-            <AuthButton />
+            <Link to="/marketplace">Маркет</Link>
           </div>
           <div className="navbutt">
-            <Link to="/marketplace">Маркет</Link>
+            <Link to="/admin/users">Управление пользователями</Link>
+          </div>
+          <div className="navbutt">
+            <AuthButton />
           </div>
         </div>
       </div>
@@ -48,21 +54,44 @@ function Footer() {
 // Главный компонент
 function App() {
   return (
-    <AuthProvider>
-      <Router>
+    <Router>
+      <AuthProvider>
         <Header />
-        <main> {/* Оборачиваем Routes в main для flexbox */}
+        <main>
           <Routes>
-            <Route path="/dormitories" element={<DormsPage />} />
             <Route path="/" element={<MainPage />} />
+            <Route path="/dormitories" element={<DormsPage />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/marketplace" element={<MarketplacePage />} />
-            <Route path="/register" element={<RegisterForm />} />
+            
+            {/* Админские маршруты */}
+            <Route path="/admin/users" element={
+              <PrivateRoute requiredRole={2}>
+                <AdminUserManagement />
+              </PrivateRoute>
+            } />
+            <Route path="/admin/users/edit/:id" element={
+              <PrivateRoute requiredRole={2}>
+                <AdminUserManagement />
+              </PrivateRoute>
+            } />
+            <Route path="/admin/users/register" element={
+              <PrivateRoute requiredRole={2}>
+                <AdminUserManagement />
+              </PrivateRoute>
+            } />
+            
+            {/* Перенаправление для старых ссылок */}
+            <Route path="/admin/register-users" element={<Navigate to="/admin/users" replace />} />
+            <Route path="/admin/register-users/:id" element={<Navigate to="/admin/users/edit/:id" replace />} />
+            
+            {/* Страница 404 */}
+            
           </Routes>
         </main>
         <Footer />
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

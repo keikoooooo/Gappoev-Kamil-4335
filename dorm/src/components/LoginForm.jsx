@@ -1,57 +1,57 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 import { login } from '../services/authService';
-import '../styles/LoginForm.css'; // Новый файл стилей
 
 const LoginForm = () => {
-  const [studentId, setStudentId] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const { login: authLogin } = useAuth();
   const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     try {
-      const { accessToken, refreshToken } = await login(studentId, password);
-      authLogin(accessToken, refreshToken, { studentId, role: 'user' }); // Добавляем user данные
-      navigate('/dormitories');
+      await login(credentials.username, credentials.password);
+      navigate('/');
     } catch (err) {
-      setError(err.response?.data?.detail || 'Ошибка входа');
+      setError(err.message || 'Ошибка входа');
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Вход</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <input
-              type="text"
-              value={studentId}
-              onChange={(e) => setStudentId(e.target.value)}
-              placeholder="Номер студ. билета"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Пароль"
-              required
-            />
-          </div>
-          <button type="submit" className="login-button">Войти</button>
-          {error && <div className="error">{error}</div>}
-          <p className="register-link">
-            Нет аккаунта? <a href="/register">Зарегистрироваться</a>
-          </p>
-        </form>
-      </div>
+    <div className="login-container" style={{ padding: '20px', maxWidth: '400px', margin: '0 auto' }}>
+      <h2>Вход</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <input
+            type="text"
+            name="username"
+            value={credentials.username}
+            onChange={handleChange}
+            placeholder="Имя пользователя*"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+            placeholder="Пароль*"
+            required
+          />
+        </div>
+        <button type="submit" style={{ backgroundColor: '#007bff', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+          Войти
+        </button>
+        {error && <div className="error" style={{ color: 'red', marginTop: '10px' }}>{error}</div>}
+      </form>
     </div>
   );
 };
