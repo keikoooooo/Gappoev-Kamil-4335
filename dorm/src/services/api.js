@@ -77,15 +77,18 @@ export const getProductsForModeration = async () => {
 
 export const approveProduct = async (productId) => {
   try {
-    const token = localStorage.getItem('accessToken');
-    const response = await axios.put(`${API_URL}products/${productId}`, {}, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
+    console.log(`Одобрение товара с ID: ${productId}, URL: ${API_URL}/products/${productId}`); // Отладка
+    const response = await api.put(`/products/${productId}`, {
+      status: 'approved'
     });
     return response.data;
   } catch (error) {
+    console.error('Ошибка при одобрении товара:', error);
+    if (error.response?.status === 404) {
+      throw new Error(`Ошибка 404: Ресурс /products/${productId} не найден. Проверьте endpoint или ID.`);
+    } else if (error.response?.status === 422) {
+      throw new Error(`Ошибка 422: ${JSON.stringify(error.response.data)}`);
+    }
     throw error;
   }
 };
@@ -100,23 +103,31 @@ export const deleteProduct = async (productId) => {
   }
 };
 
-export const createProd = async (productData) => {
+export const createProd = async (formData) => {
   try {
-    const response = await api.post('/products', productData);
+    const response = await api.post('/products', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
     return response.data;
   } catch (error) {
     console.error('Ошибка при создании товара:', error);
+    if (error.response?.status === 422) {
+      throw new Error(`Ошибка 422: ${JSON.stringify(error.response.data)}`);
+    }
     throw error;
   }
 };
+
 export const getUserMe = async () => {
-  const token = localStorage.getItem('accessToken'); // Предполагаем, что токен хранится в localStorage
-  const response = await axios.get(`${API_URL}users/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+  try {
+    const response = await api.get('/users/me');
+    return response.data;
+  } catch (error) {
+    console.error('Ошибка при запросе данных пользователя:', error);
+    throw error;
+  }
 };
 
 export default api;

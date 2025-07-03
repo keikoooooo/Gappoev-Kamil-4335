@@ -15,26 +15,13 @@ const AuthButton = () => {
 
   if (!isAuthenticated) {
     return (
-      <Link to="/login" style={{ textDecoration: 'none', color: '#007bff' }}>
+      <Link to="/login" style={{ textDecoration: 'none', color: '#fff' }}>
         Войти
       </Link>
     );
   }
 
-  if (isAdmin) {
-    return (
-      <>
-        <Link
-          to="/admin/register-users"
-          style={{ textDecoration: 'none', color: '#007bff', marginRight: '10px' }}
-          onClick={(e) => console.log('Click on Register Users link', e)}
-        >
-          Регистрация пользователей
-        </Link>
-        
-      </>
-    );
-  }
+
 
   return (
     <button

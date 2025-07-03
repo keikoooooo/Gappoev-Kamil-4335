@@ -226,12 +226,12 @@ const MarketplacePage = () => {
     const formData = new FormData();
 
     // Явно задаем пустые значения для всех полей, кроме status
-    formData.append('title', ''); // Пустая строка вместо null
-    formData.append('description', ''); // Пустая строка вместо null
-    formData.append('price', ''); // Пустая строка вместо null
-    formData.append('category_id', ''); // Пустая строка вместо null
-    formData.append('dormitory_id', ''); // Пустая строка вместо null
-    formData.append('status', 'approved'); // Используем значение status
+    // formData.append('title', ''); // Пустая строка вместо null
+    // formData.append('description', ''); // Пустая строка вместо null
+    // formData.append('price', ''); // Пустая строка вместо null
+    // formData.append('category_id', ''); // Пустая строка вместо null
+    // formData.append('dormitory_id', ''); // Пустая строка вместо null
+    // formData.append('status', product.status || 'approved'); // Используем значение status
     formData.append('image_files', JSON.stringify([])); // Пустой массив для image_files
 
     const token = localStorage.getItem('accessToken'); // Предполагаем, что токен хранится в localStorage
